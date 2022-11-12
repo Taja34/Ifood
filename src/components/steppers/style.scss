@@ -1,0 +1,84 @@
+@keyframes myAnim {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: #fff;
+}
+
+.firstStep {
+    left: 50vw;
+    top: 45vh;
+    margin-top: -150px;
+    margin-left: -155px;
+    position: absolute;
+    width: 300px;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+
+    &__text {
+        position: absolute;
+        top: 62vh;
+        text-align: center;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        left: 50vw;
+        animation: myAnim 2s ease 0s 1 normal forwards;
+     
+        font-size: 16px;
+        margin-left: -125px;
+
+
+        &__bolita {
+            position: absolute;
+            bottom: 13vh;
+            left: 50vw;
+            margin-left: -50px;
+            gap: 10px;
+            display: flex;
+
+            &__button {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 600;
+                color: #595757;
+                font-size: 16px;
+                position: absolute;
+                bottom: 5vh;
+                left: 50vw;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-left: -175px;
+                border-radius: 10px;
+                width: 350px;
+                height: 50px;
+                background-color: #ffe031;
+
+            }
+
+            &__s {
+                width: 20px;
+                background-color: #ffe03161;
+                height: 15px;
+                border-radius: 50px;
+            }
+
+            &__a {
+                width: 40px;
+                background-color: #ffe031;
+                height: 15px;
+                border-radius: 50px;
+            }
+        }
+    }
+
+}
+
+.esta {
+    width: 50px;
+}
