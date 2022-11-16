@@ -4,7 +4,7 @@ export const userTypes = {
   USER_LOGOUT: "USER_LOGOUT",
 };
 
-export const paletasTypes = {
+export const productTypes = {
   PALETAS_GET: 'PALETAS_GET',
   PALETAS_ADD:'PALETAS_ADD'
 }

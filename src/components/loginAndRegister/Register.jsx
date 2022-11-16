@@ -31,7 +31,7 @@ const Register = () => {
         email: data.email,
         password: data.password1,
       };
-      dispatch(actionRegisterAsync(newUser));
+
       if (error) {
         alert("hay error");
         navigate('/service')

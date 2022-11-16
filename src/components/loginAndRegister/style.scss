@@ -1,4 +1,7 @@
+*{
+  font-family: 'Roboto', sans-serif;
 
+}
 .pantalla{
 
   &__carga{
@@ -104,7 +107,7 @@ font-size: 16px;
     height: 50px;
     background-color: #ffe031;
 
-
+cursor: pointer;
 }
 .register__title{
   position: absolute;
@@ -127,20 +130,22 @@ font-size: 16px;
   align-items: center;
   gap: 50px;
   position: absolute;
-  top: 20vh;
+  top: 25vh;
+  left: 50vw;
+  margin-left: -175px;
   &__button{
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     color: #595757;
     font-size: 16px;
     position: absolute;
-    bottom: -48vh;
-    left: 50vw;
+    bottom: -45vh;
+ 
     justify-content: center;
     display: flex;
     border: none;
     align-items: center;
-    margin-left: -175px;
+ 
     border-radius: 10px;
     width: 350px;
     height: 50px;
@@ -186,4 +191,58 @@ gap: 30px;
   margin-right: -280px;
 }
 
+}
+.home__navbar{
+  margin-top: 20px;
+  margin-left: 20px;
+  gap: 10px;
+  display: flex;
+  font-weight: 500;
+}
+.home__publicidad{
+  width: 100%;
+  display: flex;
+  overflow-y: auto;
+  gap: 20px;
+  &__subtitle{
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: lighter;
+    color: #8e8d8d;
+
+  }
+
+  &__cont{
+    background-color: #e7e5e5;
+height: 50px;
+align-items: center;
+display: flex;
+justify-content: center;
+    border-radius: 10px;
+  width: 150px;
+
+
+  }
+
+}
+.home{
+padding-left: 10px;
+}
+.home__menu{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  gap: 20px;
+  &__overflow{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  width: 1000px;
+  }
+}
+.amarillo{
+  font-size: 14px;
+  color: #FFE031;
 }

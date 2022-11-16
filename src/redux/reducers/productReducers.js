@@ -1,17 +1,17 @@
-import { paletasTypes } from "../types/userTypes";
+import { productTypes } from "../types/userTypes";
 
 const initialState = {
-  paletas: [],
+  productos: [],
 };
 
 export const productReducers = (state = initialState, action) => {
   switch (action.type) {
-    case paletasTypes.PALETAS_GET:
+    case productTypes.PALETAS_GET:
       return {
         ...state,
-        paletas: action.payload.paletas,
+        productos: action.payload.paletas,
           };
-      case paletasTypes.PALETAS_ADD:
+      case productTypes.PALETAS_ADD:
           return {
               ...state,
               paletas: [
