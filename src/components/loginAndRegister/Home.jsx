@@ -5,8 +5,12 @@ import { actionLogoutAsync } from '../../redux/actions/userAction';
 import img from '../../img/Img.png'
 import ubi from '../../img/ubi.png'
 import reta from '../../img/restauran.png'
-import { actionGetPaletasAsync } from '../../redux/actions/productActions';
+import { actionFilterPaletasAsync, actionGetPaletasAsync } from '../../redux/actions/productActions';
+import { category } from '../../service/dates';
+import { pactionFilterAsync } from '../../redux/actions/platosAction';
+
 const Home = () => {
+  
    const navigate = useNavigate()
     const dispatch = useDispatch();
     const { productos } = useSelector((store) => store.products);
@@ -21,14 +25,30 @@ const Home = () => {
       {titulo: '🍕 otra vez'},
       
     ]
+  
     const [first, setfirst] = useState(menu)
     const [second, setsecond] = useState()
- 
+    const onFiltered = (searchValue) => {
+      const searchParam = "tipo";
+      dispatch(actionFilterPaletasAsync(searchParam, searchValue));
+    };
+    const onFiltered2 = (element) => {
+      let searchValue = element.name
+      let id = element.idrestaurante
+      const searchParam = "name";
+      dispatch(actionFilterPaletasAsync(searchParam, searchValue));
+      dispatch(pactionFilterAsync(searchValue))
+      navigate('/detalles')
+    };
 console.log(first)
     const onCloseSession = () => {
       
 navigate('/singin')
       };
+      const detalles = () => {
+      
+        navigate('/detalles')
+              };
   return (
     <>
     <div className='home'>
@@ -48,11 +68,20 @@ navigate('/singin')
     <div className='home__menu__overflow'>
       {
         
-        first.map((element, index)=>{
+        category.map((element, index)=>{
           return(
 
-          
-          <div key={index} className='home__publicidad__cont'> <p>{element.titulo} </p></div>
+            <button
+          key={element.value}
+          variant="warning"
+          className='home__publicidad__cont'
+          onClick={() => {
+            onFiltered(element.label);
+          }}
+        >
+          {element.label}
+        </button>
+   
         )})
       }
       </div>
@@ -60,12 +89,26 @@ navigate('/singin')
    <section>
    {
 productos.map((element, index)=>{
+  let puntaje = 0;
+      if(element.calificacion===1){
+puntaje= '⭐'
+      }if(element.calificacion===2){
+puntaje= '⭐⭐'
+      }if(element.calificacion===3){
+puntaje= '⭐⭐⭐'
+      }if(element.calificacion===4){
+puntaje= '⭐⭐⭐⭐'
+      }if(element.calificacion===5){
+puntaje= '⭐⭐⭐⭐⭐'
+      }
   return(
-  <div className='home__restaurante'>
-  <img src={element.img}/>
-  <div>
+  <div className='home__restaurante' key={index} onClick={()=>{onFiltered2(element)}}>
+  <img src={element.img} className='home__img'/>
+  <div className='home__description'>
   <p>{element.name}</p>
-  <p>{}</p>
+<p>{puntaje}</p>
+<p> Work time {element.time}</p>
+<p>Before you {element.esto}</p>
   </div>
 </div>)})
    }
